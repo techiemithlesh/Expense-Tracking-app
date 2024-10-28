@@ -20,6 +20,17 @@ const Expense = sequelize.define(
       },
       field: "user_id",
     },
+    expense_type: {
+      type: DataTypes.ENUM("credit", "debit"),
+      defaultValue: "debit",
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [["credit", "debit"]],
+          msg: "Expense type must be either 'credit' or 'debit'",
+        },
+      },
+    },
     name: {
       type: DataTypes.STRING,
     },

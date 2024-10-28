@@ -74,7 +74,7 @@ exports.loginUser = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log("error", error);
+    // console.log("error", error);
     return res.json({
       message: error,
       status: 404,

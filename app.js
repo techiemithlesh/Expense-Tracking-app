@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const userRoutes = require("./routes/User");
+const expenseRoutes = require("./routes/Expense");
 const sequelize = require("./database/connection");
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(express.json());
 
 // ROUTES
 app.use("/api/auth", userRoutes);
+app.use("/api", expenseRoutes);
 
 const PORT =
   process.env.ENVIRONMENT === "development"
